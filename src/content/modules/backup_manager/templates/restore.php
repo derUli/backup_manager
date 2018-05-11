@@ -10,6 +10,8 @@ if ($name) {
     
     $backup = new BackupTableEntry($baseFolder);
     ?>
+	
+<h1><?php translate("restore_backup");?></h1>
 <p>
 	<strong><?php translate("date");?></strong><br />
 <?php echo date("c",$backup->date);?>

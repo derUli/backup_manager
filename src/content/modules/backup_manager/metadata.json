@@ -1,0 +1,39 @@
+{
+	"source": "extend",
+	"version": "1.0.0",
+	"embed": false,
+	"objects": {
+		"BackupType": "objects/backup/BackupType.php",
+		"Backup": "objects/backup/Backup.php",
+		"BackupTableEntry": "objects/backup/BackupTableEntry.php"
+	},
+	"controllers": {
+		"BackupHooksController": "controllers/BackupHooksController.php",
+		"BackupAdminController": "controllers/BackupAdminController.php"
+	},
+	"controller_function_permissions": {
+		"BackupAdminController::download": "backup_download",
+		"BackupAdminController::delete": "backup_delete",
+		"BackupAdminController::create": "backup_create",
+		"BackupAdminController::restore": "backup_restore"
+	},
+	"main_class": "BackupHooksController",
+	"custom_acl": [
+		"backup_list",
+		"backup_create",
+		"backup_delete",
+		"backup_restore",
+		"backup_download"
+	],
+	"admin_permission": "backup_list",
+	"actions": {
+		"backup_list": "templates/list.php",
+		"backup_new": "templates/new.php",
+		"backup_restore": "templates/restore.php"
+	},
+	"action_permissions": {
+		"backup_list": "backup_list",
+		"backup_new": "backup_create",
+		"backup_restore": "backup_restore"
+	}
+}

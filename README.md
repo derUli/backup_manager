@@ -13,4 +13,6 @@ Backup Manager provides backup features within a GUI, a command line interface a
 
 # Installation
 
-...
+1. click on "Packages" > "Install package" > "Upload file"
+2. Upload the file "backup_manager-{VERSION}.sin" and click "Install"
+3. Optional set $backup_dir in CMSConfig.php

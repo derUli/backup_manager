@@ -1,0 +1,8 @@
+Backup Manager ist DIE Backup-Lösung für UliCMS.
+
+Features
+
+* Backups im Backend des CMS durchführen
+* Backups per Kommandozeile durchführen
+* Regelmäßige Backups als Cronjob einrichten
+* Flexible Berechtigungen

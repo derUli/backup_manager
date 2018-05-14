@@ -1,6 +1,6 @@
 {
    "id" : "backup_manager",
-   "version" : "1.0.0",
+   "version" : "1.0.1",
    "description" : "Backup Manager for UliCMS",
    "categories" : ["backup", "admin"],
    "compatible_from" : "2018.3.1",

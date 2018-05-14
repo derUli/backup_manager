@@ -62,12 +62,7 @@ class BackupAdminController extends Controller
         Response::javascriptRedirect(ModuleHelper::buildActionURL("backup_list"));
         return "";
     }
-
-    public function restoreBackup()
-    {
-        throw new NotImplementedException("restore backup not implemented yet.");
-    }
-
+	
     public function download()
     {
         $name = Request::getVar("name", 0, "int");

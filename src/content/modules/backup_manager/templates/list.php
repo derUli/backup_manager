@@ -4,9 +4,16 @@ $baseFolder = $backupHooksController->getBackupDir();
 $data = BackupTableEntry::getAll($baseFolder);
 
 $acl = new ACL();
+$allowed = func_enabled("shell_exec");
 ?>
 
 <h1><?php translate("backups");?></h1>
+<?php if($allowed["s"] == 0){
+?>
+<div class="alert alert-warning">
+<?php echo $it_is_disabled ["m"];?>
+</div>
+<?php }?>
 <?php if($acl->hasPermission("backup_create")){?>
 <p>
 	<a href="<?php echo ModuleHelper::buildActionURL("backup_new");?>"

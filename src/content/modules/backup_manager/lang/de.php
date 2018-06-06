@@ -8,3 +8,5 @@ add_translation("put_site_into_maintenance_mode", "Seite während des Vorgangs i
 add_translation("please_wait_dot_dot_dot", "Bitte warten...");
 add_translation("restore_backup", "Backup wiederherstellen");
 add_translation("restore_backup_x", "Stelle Backup %dir% wieder her...");
+add_translation("wrong_password", "Falsches Passwort");
+add_translation("try_again", "Erneut versuchen");

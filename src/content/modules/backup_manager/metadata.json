@@ -15,7 +15,8 @@
 		"BackupAdminController::download": "backup_download",
 		"BackupAdminController::delete": "backup_delete",
 		"BackupAdminController::create": "backup_create",
-		"BackupAdminController::restore": "backup_restore"
+		"BackupAdminController::restore": "backup_restore",
+		"BackupAdminController::checkPassword": "backup_list"
 	},
 	"main_class": "BackupHooksController",
 	"custom_acl": [

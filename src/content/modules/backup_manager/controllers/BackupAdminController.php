@@ -28,6 +28,18 @@ class BackupAdminController extends Controller
         return "";
     }
 
+    // Action to check the password with ajax before submitting the form
+    public function checkPassword()
+    {
+        $password = Request::getVar("password", null, "str");
+        $user = new User();
+        $user->loadById($_SESSION["login_id"]);
+        if (Encryption::hashPassword($password) != $user->getPassword()) {
+            HTTPStatusCodeResult(403, get_translation("wrong_password"));
+        }
+        HTTPStatusCodeResult(200, get_translation("ok"));
+    }
+
     public function restore()
     {
         $name = Request::getVar("name", null, "int");
@@ -42,6 +54,17 @@ class BackupAdminController extends Controller
             TextResult("Not found", 404);
         }
         
+        $password = Request::getVar("password", null, "str");
+        $user = new User();
+        $user->loadById($_SESSION["login_id"]);
+        if (Encryption::hashPassword($password) != $user->getPassword()) {
+            $backLink = \UliCMS\HTML\Link::Link("#", "[" . get_translation("try_again") . "]", array(
+                "onclick" => "history.back()",
+                "class" => "btn btn-default btn-back"
+            ));
+            ExceptionResult(get_translation("wrong_password") . " $backLink", 403);
+        }
+        
         header("Content-type: text/html; charset=utf-8");
         translate("restore_backup_x", array(
             "%dir%" => basename($targetDir)
@@ -52,7 +75,7 @@ class BackupAdminController extends Controller
         echo "<br/>";
         fcflush();
         flush();
-                
+        
         $backup = new Backup($targetDir);
         $backup->restore(boolval(Request::getVar("maintenance_mode", 0, "bool")));
         translate("Done.");
@@ -62,7 +85,7 @@ class BackupAdminController extends Controller
         Response::javascriptRedirect(ModuleHelper::buildActionURL("backup_list"));
         return "";
     }
-	
+
     public function download()
     {
         $name = Request::getVar("name", 0, "int");

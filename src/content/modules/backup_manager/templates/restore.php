@@ -44,7 +44,9 @@ if ($name) {
 <?php
     enqueueScriptFile(ModuleHelper::buildModuleRessourcePath("backup_manager", "js/restore.js"));
     combinedScriptHtml();
- 
+	$translation = new JSTranslation();
+	$translation->addKey("wrong_password");
+	$translation->render();
     ?>
 <?php
 } else {

@@ -13,7 +13,7 @@ $("#restore-form").submit(function(event) {
 		},
 		error : function(xhr, status, error) {
 			$("#password").val("");
-			alert(error + "!");
+			alert(Translation.WrongPassword + "!");
 		}
 	});
 });

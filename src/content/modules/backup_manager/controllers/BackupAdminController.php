@@ -35,9 +35,9 @@ class BackupAdminController extends Controller
         $user = new User();
         $user->loadById($_SESSION["login_id"]);
         if (Encryption::hashPassword($password) != $user->getPassword()) {
-            HTTPStatusCodeResult(403, get_translation("wrong_password"));
+            HTTPStatusCodeResult(403);
         }
-        HTTPStatusCodeResult(200, get_translation("ok"));
+        HTTPStatusCodeResult(200);
     }
 
     public function restore()

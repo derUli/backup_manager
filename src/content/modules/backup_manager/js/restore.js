@@ -1,3 +1,4 @@
+// Checks password before submitting the form
 $("#restore-form").submit(function(event) {
 	event.preventDefault();
 	var password = $("#password").val();

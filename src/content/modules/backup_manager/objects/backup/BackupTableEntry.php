@@ -1,4 +1,5 @@
 <?php
+use UliCMS\Exceptions\FileNotFoundException;
 
 class BackupTableEntry
 {
@@ -8,7 +9,7 @@ class BackupTableEntry
     public $size;
 
     public $type;
-    
+
     public $name;
 
     public function __construct($folder = null)

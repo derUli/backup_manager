@@ -1,7 +1,7 @@
 
 <p>
 	<a href="<?php echo ModuleHelper::buildActionURL("backup_list");?>"
-		class="btn btn-default btn-back"><?php translate("back")?></a>
+		class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> <?php translate("back")?></a>
 </p>
 <h1><?php translate("create_backup");?></h1>
 <?php echo ModuleHelper::buildMethodCallForm("BackupAdminController", "create");?>
@@ -16,5 +16,5 @@
 	<label><input type="checkbox" name="maintenance_mode" value="1">
 <?php translate("put_site_into_maintenance_mode");?></label>
 </div>
-<button type="submit" class="btn btn-warning"><?php translate("create_backup");?></button>
+<button type="submit" class="btn btn-warning"><i class="fa fa-hdd" aria-hidden="true"></i> <?php translate("create_backup");?></button>
 <?php echo ModuleHelper::endForm();?>

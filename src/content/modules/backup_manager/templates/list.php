@@ -17,7 +17,7 @@ $allowed = func_enabled("shell_exec");
 <?php if($acl->hasPermission("backup_create")){?>
 <p>
 	<a href="<?php echo ModuleHelper::buildActionURL("backup_new");?>"
-		class="btn btn-warning"><?php translate("create");?></a>
+		class="btn btn-warning"><i class="fa fa-plus"></i> <?php translate("create");?></a>
 </p>
 <?php }?>
 <div class="scroll">
@@ -33,18 +33,19 @@ $allowed = func_enabled("shell_exec");
 	<tbody>
 	<?php foreach($data as $backup){?>
 	<tr>
-			<td><?php echo date("c",$backup->date);?></td>			<td><?php echo get_translation("backup_type_{$backup->type}");?></td>
-			
+			<td><?php echo date("c",$backup->date);?></td>		
+			<td><?php echo get_translation("backup_type_{$backup->type}");?></td>			
 			<td class="text-right"><?php echo round($backup->size / 1000 / 1000, 2) ." MB";?></td>
 			<td class="text-left">
 				<div class="btn-group" >
 				<?php if($acl->hasPermission("backup_download")){?>
-						<a href="<?php echo ModuleHelper::buildMethodCallUrl("BackupAdminController", "download", "name={$backup->name}")?>" class="btn btn-danger btn-margin"><?php translate("download")?></a>
+						<a href="<?php echo ModuleHelper::buildMethodCallUrl("BackupAdminController", "download", "name={$backup->name}")?>" 
+						class="btn btn-danger btn-margin"><i class="fa fa-download" aria-hidden="true"></i> <?php translate("download")?></a>
 					<?php }?><?php if($acl->hasPermission("backup_restore")){?>
 			
 						<a
 							href="<?php echo ModuleHelper::buildActionURL("backup_restore", "name={$backup->name}");?>"
-							class="btn btn-danger btn-margin"><?php translate("restore")?></a>
+							class="btn btn-danger btn-margin"><i class="fas fa-undo"></i> <?php translate("restore")?></a>
 					
 				<?php }?>
 <?php
@@ -57,7 +58,7 @@ $allowed = func_enabled("shell_exec");
             "class" => "delete-form pull-left btn-margin"
         ));
         ?>
-        <button type="submit" class="btn btn-danger"><?php translate("delete");?></button>
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> <?php translate("delete");?></button>
         <?php
         
         echo ModuleHelper::endForm();

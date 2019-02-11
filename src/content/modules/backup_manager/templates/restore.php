@@ -1,6 +1,6 @@
 <p>
 	<a href="<?php echo ModuleHelper::buildActionURL("backup_list");?>"
-		class="btn btn-default btn-back"><?php translate("back")?></a>
+		class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> <?php translate("back")?></a>
 </p>
 <?php
 $name = Request::getVar("name", null, "int");
@@ -38,7 +38,7 @@ if ($name) {
 
 	</p>
 </div>
-<button type="submit" class="btn btn-danger"><?php translate("restore");?></button>
+<button type="submit" class="btn btn-danger"><i class="fas fa-undo"></i> <?php translate("restore");?></button>
 
 <?php echo ModuleHelper::endForm();?>
 <?php

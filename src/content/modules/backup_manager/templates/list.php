@@ -11,7 +11,7 @@ $allowed = func_enabled("shell_exec");
 <?php if($allowed["s"] == 0){
 ?>
 <div class="alert alert-warning">
-<?php echo $allowed ["m"];?>
+	<?php echo $allowed ["m"];?>
 </div>
 <?php }?>
 <?php if($acl->hasPermission("backup_create")){?>

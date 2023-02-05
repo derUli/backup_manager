@@ -8,10 +8,10 @@ $allowed = func_enabled("shell_exec");
 ?>
 
 <h1><?php translate("backups");?></h1>
-<?php if($allowed["s"] == 0){
+<?php if(!$allowed){
 ?>
 <div class="alert alert-warning">
-	<?php echo $allowed ["m"];?>
+	Function shell_exec() is disabled.
 </div>
 <?php }?>
 <?php if($acl->hasPermission("backup_create")){?>

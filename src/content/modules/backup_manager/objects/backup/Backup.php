@@ -71,7 +71,6 @@ class Backup
         }
         
         $allowed = func_enabled("shell_exec");
-        $allowed = $allowed["s"] === 1 && ! ini_get('safe_mode');
         
         $tmpfile = $this->targetDir . "/" . uniqid();
         $writable = @file_put_contents($tmpfile, "test") !== false;
@@ -86,6 +85,7 @@ class Backup
             if (isCli()) {
                 echo "Create mysqldump\n";
             }
+            
             shell_exec("mysqldump -h $mysql_host -u $mysql_user -p$mysql_password --skip-lock-tables --add-drop-table --complete-insert --hex-blob $mysql_database > $backup_file");
             
             if (isCli()) {
